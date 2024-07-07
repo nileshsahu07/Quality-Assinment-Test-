@@ -41,16 +41,16 @@ const loginSlice = createSlice({
 
         }).addCase(login.fulfilled,(state,action)=>{
             const data = action.payload
-            // console.log(data)
+            
             const token = data.data.token;
             state.loading = false;
             state.token = token;
            
             const decoded = jwtDecode(token)
-            // console.log(decoded)
+           
             const {role,name} = decoded
             state.name = name
-            // console.log(role)
+
             state.role = role
 
             localStorage.setItem('name',name)

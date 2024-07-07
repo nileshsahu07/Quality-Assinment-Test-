@@ -1,9 +1,9 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { Link } from 'react-router-dom'
-// import { logout } from './redux/slices/LoginSlice'
+import { logout } from './redux/slices/LoginSlice'
 
 
 const name = localStorage.getItem('name')
@@ -32,11 +32,11 @@ function classNames(...classes) {
 
 export default function Header() {
 
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
 
-  // function handleLGbutton(){
-  //   dispatch(logout())
-  // }
+  function handleLGbutton(){
+    dispatch(logout())
+  }
 
   return (
     <>
@@ -76,7 +76,7 @@ export default function Header() {
                   </div>
                   <div className="hidden md:block">
                     <div className="ml-4 flex items-center md:ml-6">
-                    {/* <button className='text-red-400 ' onClick={handleLGbutton} >Logout</button> */}
+                    <button className='text-red-400 ' onClick={handleLGbutton} >Logout</button>
                       <button
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
