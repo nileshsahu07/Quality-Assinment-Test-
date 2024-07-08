@@ -7,7 +7,7 @@ export default function Example() {
 
   const dispatch = useDispatch()
 
-    const [userData,setuserData] = useState({
+    const [formData,setuserData] = useState({
         name:"",
         email:"",
         password:""
@@ -17,15 +17,15 @@ export default function Example() {
         const {name,value} = e.target
 
         setuserData({
-            ...userData ,
+            ...formData ,
              [name] : value
         })
     }
 
     const handleSubmit = (e)=>{
         e.preventDefault()
-        console.log(userData)
-        dispatch(signUp(userData))
+        console.log(formData)
+        dispatch(signUp(formData))
     }
 
     return (
@@ -56,7 +56,7 @@ export default function Example() {
                     autoComplete="name"
                     required
                     className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    value={userData.name}
+                    value={formData.name}
                     onChange={handleChange}
                   />
                 </div>
@@ -73,7 +73,7 @@ export default function Example() {
                     autoComplete="email"
                     required
                     className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    value={userData.email}
+                    value={formData.email}
                     onChange={handleChange}
                   />
                 </div>
@@ -98,7 +98,7 @@ export default function Example() {
                     autoComplete="current-password"
                     required
                     className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    value={userData.password}
+                    value={formData.password}
                     onChange={handleChange}
                   />
                 </div>
